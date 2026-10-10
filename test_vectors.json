@@ -1,0 +1,36 @@
+{
+  "description": "Each case gives a decoded value and how it is encoded. A decoded number that is not finite is named by a string under \"number\", because JSON cannot hold it. Every other decoded value is given under \"value\".",
+  "cases": [
+    { "decoded": { "number": "NaN" }, "encoded": "NaN" },
+    { "decoded": { "number": "Infinity" }, "encoded": "Infinity" },
+    { "decoded": { "number": "-Infinity" }, "encoded": "-Infinity" },
+    { "decoded": { "value": "NaN" }, "encoded": "_str_NaN" },
+    { "decoded": { "value": "Infinity" }, "encoded": "_str_Infinity" },
+    { "decoded": { "value": "-Infinity" }, "encoded": "_str_-Infinity" },
+    { "decoded": { "value": "_str_NaN" }, "encoded": "_str__str_NaN" },
+    {
+      "decoded": { "value": "_str__str_NaN" },
+      "encoded": "_str__str__str_NaN"
+    },
+    {
+      "decoded": { "value": "_str_-Infinity" },
+      "encoded": "_str__str_-Infinity"
+    },
+    { "decoded": { "value": "_str_hello" }, "encoded": "_str_hello" },
+    { "decoded": { "value": "_str_" }, "encoded": "_str_" },
+    { "decoded": { "value": "nan" }, "encoded": "nan" },
+    { "decoded": { "value": "inf" }, "encoded": "inf" },
+    { "decoded": { "value": "+Infinity" }, "encoded": "+Infinity" },
+    { "decoded": { "value": "NaN " }, "encoded": "NaN " },
+    { "decoded": { "value": " NaN" }, "encoded": " NaN" },
+    { "decoded": { "value": "NaNNaN" }, "encoded": "NaNNaN" },
+    { "decoded": { "value": "_str_NaN_str_" }, "encoded": "_str_NaN_str_" },
+    { "decoded": { "value": "_STR_NaN" }, "encoded": "_STR_NaN" },
+    { "decoded": { "value": "0x7fc00000" }, "encoded": "0x7fc00000" },
+    { "decoded": { "value": "" }, "encoded": "" },
+    { "decoded": { "value": 1.5 }, "encoded": 1.5 },
+    { "decoded": { "value": 0 }, "encoded": 0 },
+    { "decoded": { "value": null }, "encoded": null },
+    { "decoded": { "value": true }, "encoded": true }
+  ]
+}

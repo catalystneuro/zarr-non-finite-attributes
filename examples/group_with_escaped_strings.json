@@ -1,0 +1,23 @@
+{
+  "zarr_format": 3,
+  "node_type": "group",
+  "attributes": {
+    "zarr_conventions": [
+      {
+        "uuid": "2adc9aac-d676-4e93-8feb-903b6ae9e08a",
+        "schema_url": "https://raw.githubusercontent.com/bendichter/zarr-non-finite-attributes/refs/tags/v1/schema.json",
+        "spec_url": "https://github.com/bendichter/zarr-non-finite-attributes/blob/v1/README.md",
+        "name": "non-finite-attributes",
+        "description": "Non-finite numbers in attributes are written as strings"
+      }
+    ],
+    "threshold": "Infinity",
+    "missing_marker": "_str_NaN",
+    "notes": "The marker above is the text NaN, and the threshold is a number.",
+    "calibration": {
+      "gain": 0.195,
+      "offset": "NaN",
+      "history": [1.0, "NaN", "_str_Infinity"]
+    }
+  }
+}

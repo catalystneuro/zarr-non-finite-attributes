@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Non-Finite Attributes Convention",
+  "description": "Schema for the Non-Finite Attributes Zarr convention. The convention defines how values are encoded and has no properties of its own, so the schema checks only that the convention is registered.",
+  "type": "object",
+  "properties": {
+    "zarr_format": {
+      "type": "integer",
+      "description": "Zarr format version"
+    },
+    "node_type": {
+      "type": "string",
+      "enum": ["array", "group"],
+      "description": "Type of Zarr node"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Zarr attributes, in which non-finite numbers are encoded as strings",
+      "properties": {
+        "zarr_conventions": {
+          "type": "array",
+          "description": "Array of convention metadata objects",
+          "contains": {
+            "$ref": "#/$defs/conventionMetadata"
+          }
+        }
+      },
+      "required": ["zarr_conventions"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["zarr_format", "node_type", "attributes"],
+  "additionalProperties": true,
+  "$defs": {
+    "conventionMetadata": {
+      "type": "object",
+      "description": "Non-Finite Attributes convention metadata object for use in the zarr_conventions array",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "const": "2adc9aac-d676-4e93-8feb-903b6ae9e08a",
+          "description": "UUID that identifies the convention"
+        },
+        "schema_url": {
+          "type": "string",
+          "description": "URL of the JSON Schema for the convention"
+        },
+        "spec_url": {
+          "type": "string",
+          "description": "URL of the document that describes the convention"
+        },
+        "name": {
+          "type": "string",
+          "const": "non-finite-attributes",
+          "description": "Human-readable name of the convention"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of the convention"
+        }
+      },
+      "required": ["uuid"],
+      "additionalProperties": false
+    }
+  }
+}
