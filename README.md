@@ -2,8 +2,8 @@
 
 - **UUID**: 2adc9aac-d676-4e93-8feb-903b6ae9e08a
 - **Name**: non-finite-attributes
-- **Schema URL**: "https://raw.githubusercontent.com/bendichter/zarr-non-finite-attributes/refs/tags/v1/schema.json"
-- **Spec URL**: "https://github.com/bendichter/zarr-non-finite-attributes/blob/v1/README.md"
+- **Schema URL**: "https://raw.githubusercontent.com/catalystneuro/zarr-non-finite-attributes/refs/tags/v1/schema.json"
+- **Spec URL**: "https://github.com/catalystneuro/zarr-non-finite-attributes/blob/v1/README.md"
 - **Scope**: Array, Group
 - **Extension Maturity Classification**: Proposal
 - **Owner**: @bendichter
@@ -47,8 +47,8 @@ The convention must be registered in `zarr_conventions` on every array or group 
 {
   "zarr_conventions": [
     {
-      "schema_url": "https://raw.githubusercontent.com/bendichter/zarr-non-finite-attributes/refs/tags/v1/schema.json",
-      "spec_url": "https://github.com/bendichter/zarr-non-finite-attributes/blob/v1/README.md",
+      "schema_url": "https://raw.githubusercontent.com/catalystneuro/zarr-non-finite-attributes/refs/tags/v1/schema.json",
+      "spec_url": "https://github.com/catalystneuro/zarr-non-finite-attributes/blob/v1/README.md",
       "uuid": "2adc9aac-d676-4e93-8feb-903b6ae9e08a",
       "name": "non-finite-attributes",
       "description": "Non-finite numbers in attributes are written as strings"
