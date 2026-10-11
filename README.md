@@ -106,7 +106,9 @@ The rules do not apply to any other part of `zarr.json`. In particular, `fill_va
 
 ### Use with Other Conventions
 
-When a node registers this convention together with others, a reader decodes the attributes with this convention first, and the other conventions are applied to the decoded values. A writer encodes last.
+Conventions like this one, which encode values, are applied when attributes are read and written. Conventions that interpret attributes are applied to the decoded values. A reader therefore decodes with every registered value-encoding convention before applying the others, and a writer encodes after.
+
+Two value-encoding conventions can be registered on the same node, and applied in either order, when no string is affected by both and both use the same `_str_` prefix. Each then changes only its own values and its own affected strings, and leaves the other's unchanged. The [Bytes Attributes convention](https://github.com/catalystneuro/zarr-bytes-attributes), which writes bytes as `base64:` followed by base64, meets both conditions: its affected strings begin with `base64:` after their `_str_` prefixes, where the affected strings of this convention end in a reserved string.
 
 ### Bare Tokens
 
@@ -141,6 +143,7 @@ python reference/test_reference.py
 - The [missing_value convention](https://github.com/zarr-conventions/missing_value) reuses the fill value encoding for one attribute of an array.
 - [zarr-specs#141](https://github.com/zarr-developers/zarr-specs/issues/141) is the earlier discussion of non-finite numbers in attributes, and [zarr-specs#398](https://github.com/zarr-developers/zarr-specs/pull/398) proposed this encoding for the core specification, where the suggestion was to define it as a convention.
 - The JSON mapping of Protocol Buffers writes non-finite doubles as the same three strings.
+- The [Bytes Attributes convention](https://github.com/catalystneuro/zarr-bytes-attributes) encodes bytes in attributes, with the same escape.
 
 ## Known Implementations
 
